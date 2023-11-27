@@ -1,0 +1,68 @@
+:root{
+    --theme-col-one: #6BBD99;
+    --theme-col-two: #707070;
+    --theme-col-three: #4b886e;
+
+    --main-font-family: 'Helvetica', Neue Regular;
+    --main-font-color: var(--theme-col-two);
+    --title-font-size: 5rem;
+    --regular-font-size: 3rem;
+
+    --button-font-size: 2rem;
+    --button-vertical-padding: 1.5em;
+    --button-horizontal-padding: 3em;
+
+
+    --border-radius: .5em;
+    --field-vertical-padding: .20em;
+    --field-horizontal-padding: .75em;
+}
+body{
+    margin: 0;
+    font-family: var(--main-font-family);
+}
+.main{
+    display: flex;
+    justify-content: center;
+}
+.connexion{
+    display: grid;
+    justify-items: center;
+}
+.title{
+    font-size: var(--title-font-size);
+    letter-spacing: .3em;
+    font-weight: 100;
+    color: var(--main-font-color);
+}
+.connexion-fields{
+    width: 20em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1em;
+}
+.field, .submit{
+    border-radius: var(--border-radius);
+    border-style: dashed;
+    padding: var(--field-vertical-padding) var(--field-horizontal-padding);
+}
+.field:focus-visible{
+    border: var(--theme-col-two) solid;
+    outline: none;
+}
+.field{
+    font-size: var(--regular-font-size);
+    margin-bottom: 1em;
+}
+.submit{
+    background-color: var(--theme-col-one);
+    color: white;
+    font-size: var(--button-font-size);
+    padding: var(--button-vertical-padding) var(--button-horizontal-padding);
+}
+.submit:hover{
+    transition: 1s ease-in;
+    cursor: pointer;
+    background-color: var(--theme-col-three);
+}
