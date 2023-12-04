@@ -1,13 +1,12 @@
 <?php
-namespace App;
-class JConfig {
-    public $host = "";
-    public $db = "";
-    public $dbprefix = "";
-    public $user = "";
-    public $password = "";
-    public $icon = "ressources/pictures/LogoSwissPharma.ico";
-    public $logo = "ressources/pictures/LogoSwissPharma.png";
-}
+
+define("HOST", "localhost");
+define("DB", "appli-frais");
+define("DB_TYPE", "mysql");
+define("USER", "root");
+define("PASSWORD", "");
+define("ICON", "ressources/pictures/LogoSwissPharma.ico");
+define("LOGO", "ressources/pictures/LogoSwissPharma.png");
+
 
 ?>
