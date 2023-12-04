@@ -1,24 +1,19 @@
-:root{
+:root {
     --theme-col-one: #6BBD99;
     --theme-col-two: #707070;
     --theme-col-three: #4b886e;
-
     --main-font-family: 'Helvetica', Neue Regular;
     --main-font-color: var(--theme-col-two);
     --title-font-size: 5rem;
     --regular-font-size: 3rem;
-
     --button-font-size: 2rem;
     --button-vertical-padding: 1.5em;
     --button-horizontal-padding: 3em;
-
-
     --border-radius: .5em;
     --field-vertical-padding: .20em;
     --field-horizontal-padding: .75em;
 }
-body{
-    margin: 0;
+body {
     font-family: var(--main-font-family);
 }
 .main{
