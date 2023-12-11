@@ -13,7 +13,7 @@
         <div class="main">
             <div class="connexion">
                 <h1 class="title">CONNEXION</h1>
-                <form action="index.php?view=login" method="post">
+                <form action="index.php?view=user" method="post">
                     <div class="connexion-fields">
                         <input type="text" class="text field" name="name" placeholder="nom de l'utilisateur">
                         <input type="password" class="text field" name="password" placeholder="mot de passe">
