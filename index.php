@@ -3,15 +3,15 @@ require('config.php');
 
 
 if(!isset($_REQUEST['view'])){
-	$_REQUEST['view'] = 'login';
+	$_REQUEST['view'] = 'user';
 }	 
 
 $view = $_REQUEST['view'];
 
 
 switch ($view) {
-    case 'login': {
-        require("Controller/c_login.php");
+    case 'user': {
+        require("Controller/c_user.php");
         break;
     }
     case 'accounting_menu': {
