@@ -40,7 +40,7 @@ CREATE TABLE `fichefrais` (
 -- Structure de la table `fraisforfaitises`
 --
 
-CREATE TABLE `fraisforfaitises` (
+CREATE TABLE `fraisforfaitise` (
   `id` int(11) NOT NULL,
   `idFicheFrais` int(11) DEFAULT NULL,
   `typeFrais` varchar(255) DEFAULT NULL,
@@ -79,8 +79,11 @@ CREATE TABLE `utilisateur` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Index pour les tables déchargées
+-- Déchargement des données de la table `utilisateur`
 --
+
+INSERT INTO `utilisateur` (`id`, `nom`, `prenom`, `role`, `login`, `motDePasse`) VALUES
+(1, 'obambo', 'melvyn', 'visiteur', 'mobambo', 'azerty');
 
 --
 -- Index pour la table `fichefrais`
