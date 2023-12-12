@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.0.4
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : lun. 04 déc. 2023 à 17:40
--- Version du serveur : 10.4.24-MariaDB
--- Version de PHP : 8.1.6
+-- Généré le : lun. 11 déc. 2023 à 18:28
+-- Version du serveur :  10.4.17-MariaDB
+-- Version de PHP : 7.4.13
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de données : `applifrais`
+-- Base de données : `appli-frais`
 --
 
 -- --------------------------------------------------------
@@ -28,7 +28,7 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `fichefrais` (
-  `idFicheFrais` int(11) NOT NULL,
+  `id` int(11) NOT NULL,
   `mois` varchar(255) DEFAULT NULL,
   `etat` varchar(255) DEFAULT NULL,
   `idUtilisateur` int(11) DEFAULT NULL
@@ -41,7 +41,7 @@ CREATE TABLE `fichefrais` (
 --
 
 CREATE TABLE `fraisforfaitises` (
-  `idFraisForfaitises` int(11) NOT NULL,
+  `id` int(11) NOT NULL,
   `idFicheFrais` int(11) DEFAULT NULL,
   `typeFrais` varchar(255) DEFAULT NULL,
   `quantite` int(11) DEFAULT NULL,
@@ -55,7 +55,7 @@ CREATE TABLE `fraisforfaitises` (
 --
 
 CREATE TABLE `fraishorsforfait` (
-  `idFraisHorsForfait` int(11) NOT NULL,
+  `id` int(11) NOT NULL,
   `idFicheFrais` int(11) DEFAULT NULL,
   `dateFrais` date DEFAULT NULL,
   `libelle` varchar(255) DEFAULT NULL,
@@ -70,7 +70,7 @@ CREATE TABLE `fraishorsforfait` (
 --
 
 CREATE TABLE `utilisateur` (
-  `idUtilisateur` int(11) NOT NULL,
+  `id` int(11) NOT NULL,
   `nom` varchar(255) DEFAULT NULL,
   `prenom` varchar(255) DEFAULT NULL,
   `role` varchar(255) DEFAULT NULL,
@@ -79,38 +79,70 @@ CREATE TABLE `utilisateur` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Index pour les tables déchargées
+-- Déchargement des données de la table `utilisateur`
 --
 
+INSERT INTO `utilisateur` (`id`, `nom`, `prenom`, `role`, `login`, `motDePasse`) VALUES
+(1, 'obambo', 'melvyn', 'visiteur', 'mobambo', 'azerty');
+
 --
--- Index pour la table `comptable`
+-- Index pour les tables déchargées
 --
 
 --
 -- Index pour la table `fichefrais`
 --
 ALTER TABLE `fichefrais`
-  ADD PRIMARY KEY (`idFicheFrais`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `idUtilisateur` (`idUtilisateur`);
 
 --
 -- Index pour la table `fraisforfaitises`
 --
 ALTER TABLE `fraisforfaitises`
-  ADD PRIMARY KEY (`idFraisForfaitises`),
-  ADD KEY `fraisforfaitises_ibfk_1` (`idFicheFrais`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `idFicheFrais` (`idFicheFrais`);
 
 --
 -- Index pour la table `fraishorsforfait`
 --
 ALTER TABLE `fraishorsforfait`
-  ADD PRIMARY KEY (`idFraisHorsForfait`),
-  ADD KEY `fraishorsforfait_ibfk_1` (`idFicheFrais`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `idFicheFrais` (`idFicheFrais`);
 
 --
 -- Index pour la table `utilisateur`
 --
 ALTER TABLE `utilisateur`
-  ADD PRIMARY KEY (`idUtilisateur`);
+  ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT pour les tables déchargées
+--
+
+--
+-- AUTO_INCREMENT pour la table `fichefrais`
+--
+ALTER TABLE `fichefrais`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT pour la table `fraisforfaitises`
+--
+ALTER TABLE `fraisforfaitises`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT pour la table `fraishorsforfait`
+--
+ALTER TABLE `fraishorsforfait`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT pour la table `utilisateur`
+--
+ALTER TABLE `utilisateur`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Contraintes pour les tables déchargées
@@ -120,19 +152,19 @@ ALTER TABLE `utilisateur`
 -- Contraintes pour la table `fichefrais`
 --
 ALTER TABLE `fichefrais`
-  ADD CONSTRAINT `fichefrais_ibfk_1` FOREIGN KEY (`idUtilisateur`) REFERENCES `utilisateur` (`idUtilisateur`);
+  ADD CONSTRAINT `fichefrais_ibfk_1` FOREIGN KEY (`idUtilisateur`) REFERENCES `utilisateur` (`id`);
 
 --
 -- Contraintes pour la table `fraisforfaitises`
 --
 ALTER TABLE `fraisforfaitises`
-  ADD CONSTRAINT `fraisforfaitises_ibfk_1` FOREIGN KEY (`idFicheFrais`) REFERENCES `fichefrais` (`idFicheFrais`);
+  ADD CONSTRAINT `fraisforfaitises_ibfk_1` FOREIGN KEY (`idFicheFrais`) REFERENCES `fichefrais` (`id`);
 
 --
 -- Contraintes pour la table `fraishorsforfait`
 --
 ALTER TABLE `fraishorsforfait`
-  ADD CONSTRAINT `fraishorsforfait_ibfk_1` FOREIGN KEY (`idFicheFrais`) REFERENCES `fichefrais` (`idFicheFrais`);
+  ADD CONSTRAINT `fraishorsforfait_ibfk_1` FOREIGN KEY (`idFicheFrais`) REFERENCES `fichefrais` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
