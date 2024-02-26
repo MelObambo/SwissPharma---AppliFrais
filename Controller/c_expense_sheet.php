@@ -8,5 +8,5 @@ if(!isset($_SESSION['id'])){
     exit;
 }
 
-require('Component/c_expense_sheet.php')
+require('View/v_expense_sheet.php')
 ?>

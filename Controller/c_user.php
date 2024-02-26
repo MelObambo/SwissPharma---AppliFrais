@@ -1,21 +1,15 @@
 <?php 
 require("Model/m_user.php");
 
-if(isset($_POST['name']) && isset($_POST['password'])){
+if(isset($_POST['name'])){
     $user = $_POST['name'];
-
+    var_dump($user);
     $login = getLogin($user);
-<<<<<<< HEAD
-    if($login != null) {
-        if($_POST['password'] == $login['motDePasse']){
-            session_start();
-            $_SESSION['id'] = $login['id'];
-=======
     var_dump($login);
     if ($login) {
         if($_POST['password'] == $login['motDePasse']){
             session_start();
-            $_SESSION['id'] = $login['idUtilisateur'];
+            $_SESSION['id'] = $login['id'];
             $_SESSION['name'] = $login["nom"];
             $_SESSION['surname'] = $login['prenom'];
             $_SESSION['role'] = $login['role'];

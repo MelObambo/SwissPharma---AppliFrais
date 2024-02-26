@@ -13,10 +13,6 @@
         <div class="main">
             <div class="connexion">
                 <h1 class="title">CONNEXION</h1>
-<<<<<<< HEAD
-=======
-                <img src="assets/pictures/LogoSwissPharma.png" alt="logo Swiss Pharma" class="logo">
->>>>>>> 736feaa88401757c5b3945a1fdb95569fab8f615
                 <form action="index.php?view=user" method="post">
                     <div class="connexion-fields">
                         <input type="text" class="text field" name="name" placeholder="nom de l'utilisateur">

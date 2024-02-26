@@ -4,8 +4,8 @@
     --theme-col-three: #4b886e;
     --main-font-family: 'Helvetica', Neue Regular;
     --main-font-color: var(--theme-col-two);
-    --title-font-size: 50px;
-    --regular-font-size: 3rem;
+    --title-font-size: 5rem;
+    --regular-font-size: 2rem;
     --button-font-size: 2rem;
     --button-vertical-padding: 1.5em;
     --button-horizontal-padding: 3em;
