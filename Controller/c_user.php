@@ -3,9 +3,7 @@ require("Model/m_user.php");
 
 if(isset($_POST['name'])){
     $user = $_POST['name'];
-    var_dump($user);
     $login = getLogin($user);
-    var_dump($login);
     if ($login) {
         if($_POST['password'] == $login['motDePasse']){
             session_start();
