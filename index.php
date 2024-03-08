@@ -1,17 +1,18 @@
 <?php
-require('config.php');
 
+use App\Controllers;
 
 if(!isset($_REQUEST['view'])){
-	$_REQUEST['view'] = 'user';
+	$_REQUEST['view'] = 'login';
 }	 
 
 $view = $_REQUEST['view'];
 
 
 switch ($view) {
-    case 'user': {
-        require("Controller/c_user.php");
+    case 'login': {
+        $controller = new \App\Controllers\LoginController();
+        $controller->login();
         break;
     }
     case 'accounting_menu': {

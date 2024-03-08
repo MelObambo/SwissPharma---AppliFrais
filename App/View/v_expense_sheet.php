@@ -15,9 +15,19 @@
         <input type="month" class="text field" name="type" placeholder="MM/AAAA">
 
         <label for="type">Type de frais :</label>
-        <input type="month" class="text field" name="type" placeholder="">
-        <label for="type">Type de frais :</label>
-        <input type="amount" class="text field" name="type" placeholder="">
+        <select name="expense-type">
+            <?php
+                for ($i=0; $i < ; $i++) { 
+                    echo{
+                    ?>
+                    <option value=""></option>
+                    <?php
+                    }
+                }
+            ?>
+        </select>
+        <label for="type">Quantité</label>
+        <input type="number" class="text field" name="type" placeholder="">
         <label for="type">Type de frais :</label>
         <input type="month" class="text field" name="type" placeholder="">
     </form>
