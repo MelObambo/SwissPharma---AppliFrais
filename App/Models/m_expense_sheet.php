@@ -1,5 +1,15 @@
 <?php
 
+namespace App\Models;
+
+class ExpenseSheet {
+    private $moisAnnee;
+    private $matricule;
+    private $nbJustificatif;
+    private $montantValide;
+    private $dateModif;
+    private $idEtat;
+}
 /**
  * inserts packaged an expense sheet
  */

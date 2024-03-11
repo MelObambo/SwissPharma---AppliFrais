@@ -17,7 +17,7 @@ body {
     font-family: var(--main-font-family);
 }
 
-.title{
+h1{
     font-size: var(--title-font-size);
     letter-spacing: .3em;
     font-weight: 100;
