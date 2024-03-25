@@ -7,10 +7,10 @@
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="assets/css/login.css">
     <link rel="icon" href="<?php echo ICON; ?>">
-    <title>Se connecter</title>
+    <title>Menu</title>
 </head>
 <body>
-    <?php if ($_SESSION['role'] = 2){ echo $_SESSION['name'];?>
+    <?php if ($_SESSION['role'] == 2){ echo $_SESSION['role'];?>
 
         
         <h1>SERVICES COMPTABLES</h1>
@@ -26,11 +26,12 @@
     <?php } else { ?>
 
         <h1>VISITEURS MEDICAUX</h1>
-        <a href="" class="">Saisir une fiche de frais</a>
+        <a href="index.php?view=expense_sheet" class="">Saisir une fiche de frais</a>
         <a href="" class="">Mes fiches de frais</a>
 
-        <button>Déconnexion</button>
+        <form action="index.php?view=logout" method="post">
+            <input type="submit" value="Déconnexion">
+        </form>
     <?php } ?>
-    
 </body>
 </html>

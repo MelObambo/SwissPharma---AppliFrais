@@ -4,6 +4,7 @@ use App\Controllers;
 use App\Controllers\LoginController;
 use App\Controllers\AccountingMenuController;
 use App\Controllers\MenuController;
+use App\Controllers\ExpenseSheetController;
 
 require('vendor/autoload.php');
 require('config.php');
@@ -28,7 +29,12 @@ switch ($view) {
     }
     case 'menu': {
         $controller = new MenuController();
-        $controller->Menu();
+        $controller->menu();
+        break;
+    }
+    case 'expense_sheet': {
+        $controller = new ExpenseSheetController();
+        $controller->expenseSheet();
         break;
     }
     // case 'expense_sheets': {

@@ -16,3 +16,4 @@ class Model {
         return $this->connect;
     }
 }
+?>

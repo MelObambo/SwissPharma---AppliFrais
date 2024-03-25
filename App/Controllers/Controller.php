@@ -5,7 +5,7 @@ namespace App\Controllers;
 class Controller {
 
     public function isConnected(){
-        if(!isset($_SESSION['id'])){
+        if($_SESSION == []){
             $this->redirect('login');
             exit;
         }

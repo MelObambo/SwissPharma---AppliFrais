@@ -1,8 +1,6 @@
 <?php
 namespace App\Models;
 
-// use App\Connexion;
-
 class EmployeeModel extends Model {
 
     /**

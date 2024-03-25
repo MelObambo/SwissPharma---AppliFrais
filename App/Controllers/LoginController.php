@@ -7,6 +7,12 @@ class LoginController extends Controller {
 
     public function login(){
 
+        session_start();
+        if($_SESSION != []){
+            $this->redirect('menu');
+        }
+        session_abort();
+
         $e = false;
         
         if(isset($_POST['name']) && isset($_POST['password'])) {
@@ -19,20 +25,19 @@ class LoginController extends Controller {
             if ($user && password_verify($_POST['password'], $user['mdp'])) {
                 session_start();
 
-                $_SESSION['matricule'] = $login['matricule'];
-                $_SESSION['name'] = $login["nom"];
-                $_SESSION['surname'] = $login['prenom'];
-                $_SESSION['role'] = $login['idRole'];
-                var_dump($_SESSION['matricule']);
+                $_SESSION['matricule'] = $user['matricule'];
+                $_SESSION['name'] = $user["nom"];
+                $_SESSION['surname'] = $user['prenom'];
+                $_SESSION['role'] = $user['idRole'];
                 
-                // $this->redirect('menu');
+                $this->redirect('menu');
                 exit;
             } else {
                 $e = 'Le nom d\'utilisateur ou le mot de passe que vous avez saisi est incorrecte.';
             }
         }
 
-        $this->render('Login/LoginView', ['e'=>$e]);
+        $this->render('Login/LoginView', ['e'=> $e]);
     }
 
     public function logout(){
